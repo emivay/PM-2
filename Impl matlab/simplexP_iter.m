@@ -67,5 +67,5 @@ xb(p) = theta;	%ahora en el lugar p se encuentra el valor de x_q
 z = z + theta*r(q);
 iout = 0;
 
-%printf("Iteracion 1: variable de salida %d, variable de entrada %d", a, b)  
+fprintf(  
 
