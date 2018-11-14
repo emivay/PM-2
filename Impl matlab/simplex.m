@@ -31,7 +31,7 @@ end
 fprintf('Fase I \n');
 
 while (iout == 0)
-	fprintf("Iteración número: %4.d ", niter)
+	fprintf("Iteración número: %-4.d ", niter)
 	[vbI, vnI, xbI, zI, iout] = simplexP_iter(cI, AI, b, vbI, vnI, xbI, zI, bland);
 	niter = niter + 1;
 end
@@ -67,7 +67,7 @@ if abs(zI) < 1e-5
 	end
 	z = c(vb)*xb;	
 	while (iout == 0)
-		fprintf("Iteración número: %4.d ", niter);
+		fprintf("Iteración número: %-4.d ", niter);
 		[vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland);
 		niter = niter + 1;
 	end
