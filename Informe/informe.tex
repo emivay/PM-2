@@ -23,19 +23,23 @@ En este trabajo se ha implementado el algoritmo del Simplex Primal en dos lengua
 Se programaron dos versiones del algoritmo que difieren en la forma de elegir de la variable no básica de entrada a la base. La primera versión utiliza la Regla de Bland, mientras que la segunda utiliza la Regla del coste reducido más grande. Ambas versiones constan de las Fases I y II. \\
 Se resolvieron los problemas planteados utilizando las dos versiones y se presenta una comparación del rendimiento. Los resultados vienen acompañados de la actualización de los valores a cada iteración.
 \newpage
+
 \section{Introducción}
 \section{Objetivos}
 Los objetivos que se plantean para la práctica són:
 \begin{enumerate}
-\item	Comprender el fundamento teórico de los algoritmos del Símplex primal y dual.
-\item	Implementar el algoritmo del Símplex primal
+\item	Comprender el fundamento teórico del algoritmos del Símplex primal y su aplicación a la resolución de problemas de programación lineal.
+\item	Implementar el algoritmo del Símplex primal.
 \end{enumerate}
 \section{Metologia}
 Los objetivos anteriormente propuestos se alcanzarán con la siguiente metodología:
 \begin{enumerate}
-\item	Se realizará un estudio exhaustivo de los fundamentos de la programación lineal y del algoritmo del Símplex. Esta etapa, en su mayor parte, se hará durante la época previa a los exámenes parciales.
-\item	Se implementará el algoritmo del Símplex primal en dos lenguajes de programación: C++ y MATLAB.
+\item	Se realizará un estudio exhaustivo de los fundamentos de la programación lineal y del algoritmo del Símplex. En su mayor parte, este objetivo se realizará durante la época de estudio de exámenes parciales.
+\item	Se implementará el algoritmo del Símplex primal en dos lenguajes de programación, C++ y MATLAB, y se compararán las implementaciones.
 \end{enumerate}
+
+
+
 \section{Implementación en C++}
 A pesar de que se recomendó emplear MATLAB como lenguaje de programación, hemos decidido implementar el algoritmo en C++ como divertimento, y también como práctica para otras asignaturas como Algoritmia.\\
 Para ello, primeramente ha sido necesario crear una clase Matriz que permita implementar el algoritmo del Símplex de manera cómoda.\\
@@ -119,24 +123,23 @@ Aplicando regla de Bland el algoritmo da el mismo óptimo que la solución propo
 \end{center}
 
 En este último caso, aplicando regla de Bland, el algoritmo itera indefinidamente, siempre con los mismos datos de iteración. Podemos ver que siempre encuentra un coste reducido negativo pero muy cercano a $0$ que, nuevamente, podría ser positivo por tolerancia. Por el contrario, con coste reducido más negativo, encuentra el óptimo.\\
-En cada iteración se ha revisado el funcionamiento del algoritmo, mostrando por pantalla las matrices, y repitiendo los cálculos, sin embargo no se ha encontrado error. El hecho de que la implementación funcione correctamente en determinados casos y en otros falle, sugiere que no es problema de la propia implementación sino, como ya se ha mencionado, de tolerancia.
+En cada iteración se ha revisado el funcionamiento del algoritmo, mostrando por pantalla las matrices, y repitiendo los cálculos, sin embargo no se ha encontrado error. El hecho de que la implementación funcione correctamente en determinados casos y en otros falle, sugiere que no es problema de la propia implementación sino, como ya se ha mencionado, de tolerancia.\\
+Puesto que la implementación funciona de una manera que no podemos predecir, creemos que no merece la pena probar el algoritmo sobre otros conjuntos de datos, puesto que producirá resultados similares. Por este motivo, no se mostrarán más resultados obtenidos del algoritmo en C++.
 
 \subsection{Posibles mejoras}
-La solución al problema de las tolerancias está fuera de nuestros alcance. No obstante, en caso de descubrir o implementar una librería que esté libre de este tipo de errores, podríamos incluir las siguientes mejoras:
-\begin{itemize}
-\item	En caso de que encuentre degeneración y de estar usando la regla del coste reducido más negativo, no parar la ejecución del algoritmo, sino crear una lista con todas las bases por las que el algoritmo ha pasado a partir de la detección de degeneración. Así, tras cada iteración, podríamos comprobar si la base actual ya ha sido visitada. En caso afirmativo, probablemente indicaría que el Símplex está ciclando, y por tanto el algoritmo no asegura su convergencia.
-\end{itemize}
-\newpage
+La solución al problema de las tolerancias está fuera de nuestros alcance. No obstante, en caso de encontrar o implementar una librería que capaz de resolver este incoveniente, podríamos acabar de desarrollar el código y hacer un programa completamente funcional. Creemos además, que la implementación en C++ sería más eficiente que en MATLAB, por cuestiones relacionadas con las optimizaciones realizadas por el compilador así como por la diferencia en el cálculo de la inversa entre ambos programas.\\
+Otra mejora significativa sería en el apartado de la degeneración. En caso de que detectar degeneración y de estar usando la regla del coste reducido más negativo, que no asegura la convergencia del algoritmo, no parar la ejecución del algoritmo. La propuesta es crear una lista con todas las bases por las que el algoritmo ha iterado tras la detección de degeneración. Tras cada iteración, se comprobaría si la base actual ya ha sido visitada. En caso afirmativo, probablemente indicaría que el Símplex está ciclando, y por tanto la ejecución debería acabar o bien cambiar el criterio por la regla de Bland.
+
+
+
+
 \section{Implementación en MATLAB}
+
 \section{Conclusiones}
 Las conclusiones que hemos podido extraer tras la realización de la práctica son:
 \begin{enumerate}
-\item	asdasdas
-\item	sdfsafdsfds
+\item	Hemos aprendido los fundamentos teóricos del Símplex primal y sabemos aplicarlo para resolver un problema de programación lineal. Así mismo, hemos visto que la manera en que se nos ha enseñado y hemos estudiado el algoritmo es más sencilla y bella que el método del tablón del Símplex, 
+\item	Hemos conseguido desarrollar el Símplex en MATLAB y en C++, y hemos observado diferencias significativas entre ambas implementaciones. En la primera, el algoritmo funciona de manera correcta. El código resultante tiene un sintaxis semejante al lenguaje matemático, por tanto es fácilmente comprensible y la extensión del programa es reducida. Por el contrario, la implementación en C++ ha sido más costosa y únicamente funciona en determinados problemas. Concluimos, por lo tanto, que es recomendable implementarlo en un lenguaje pensado específicamente para el trabajo de objetos matemáticos, como puede ser MATLAB u Octave.
 \end{enumerate}
-Otras conclusiones a las que hemos llegado además de las de los objetivos planteados son:
-\begin{enumerate}
-\item	asdasdsa
-\item	dasdas
-\end{enumerate}
+
 \end{document}

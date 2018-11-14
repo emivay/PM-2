@@ -97,12 +97,11 @@ Aplicando regla de Bland el algoritmo da el mismo óptimo que la solución propo
 \end{center}
 
 En este último caso, aplicando regla de Bland, el algoritmo itera indefinidamente, siempre con los mismos datos de iteración. Podemos ver que siempre encuentra un coste reducido negativo pero muy cercano a $0$ que, nuevamente, podría ser positivo por tolerancia. Por el contrario, con coste reducido más negativo, encuentra el óptimo.\\
-En cada iteración se ha revisado el funcionamiento del algoritmo, mostrando por pantalla las matrices, y repitiendo los cálculos, sin embargo no se ha encontrado error. El hecho de que la implementación funcione correctamente en determinados casos y en otros falle, sugiere que no es problema de la propia implementación sino, como ya se ha mencionado, de tolerancia.
+En cada iteración se ha revisado el funcionamiento del algoritmo, mostrando por pantalla las matrices, y repitiendo los cálculos, sin embargo no se ha encontrado error. El hecho de que la implementación funcione correctamente en determinados casos y en otros falle, sugiere que no es problema de la propia implementación sino, como ya se ha mencionado, de tolerancia.\\
+Puesto que la implementación funciona de una manera que no podemos predecir, creemos que no merece la pena probar el algoritmo sobre otros conjuntos de datos, puesto que producirá resultados similares. Por este motivo, no se mostrarán más resultados obtenidos del algoritmo en C++.
 
 \subsection{Posibles mejoras}
-La solución al problema de las tolerancias está fuera de nuestros alcance. No obstante, en caso de descubrir o implementar una librería que esté libre de este tipo de errores, podríamos incluir las siguientes mejoras:
-\begin{itemize}
-\item	En caso de que encuentre degeneración y de estar usando la regla del coste reducido más negativo, no parar la ejecución del algoritmo, sino crear una lista con todas las bases por las que el algoritmo ha pasado a partir de la detección de degeneración. Así, tras cada iteración, podríamos comprobar si la base actual ya ha sido visitada. En caso afirmativo, probablemente indicaría que el Símplex está ciclando, y por tanto el algoritmo no asegura su convergencia.
-\end{itemize}
+La solución al problema de las tolerancias está fuera de nuestros alcance. No obstante, en caso de encontrar o implementar una librería que capaz de resolver este incoveniente, podríamos acabar de desarrollar el código y hacer un programa completamente funcional. Creemos además, que la implementación en C++ sería más eficiente que en MATLAB, por cuestiones relacionadas con las optimizaciones realizadas por el compilador así como por la diferencia en el cálculo de la inversa entre ambos programas.\\
+Otra mejora significativa sería en el apartado de la degeneración. En caso de que detectar degeneración y de estar usando la regla del coste reducido más negativo, que no asegura la convergencia del algoritmo, no parar la ejecución del algoritmo. La propuesta es crear una lista con todas las bases por las que el algoritmo ha iterado tras la detección de degeneración. Tras cada iteración, se comprobaría si la base actual ya ha sido visitada. En caso afirmativo, probablemente indicaría que el Símplex está ciclando, y por tanto la ejecución debería acabar o bien cambiar el criterio por la regla de Bland.
 \newpage
 \end{document}
