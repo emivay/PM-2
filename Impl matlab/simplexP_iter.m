@@ -45,13 +45,11 @@ function [vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland)
     if (min(db) >= 0) iout = 2; return; end %Problema ilimitado
 
     %Cálculo del paso y selección de la variable básica de salida p
+    theta = 1e10;
     for i = 1:m
-        pas = [];
         if db(i) < 0
             theta2 = -xb(i)/db(i);
-            pas = [pas theta2];
-            theta = min(pas);
-            if theta2 <= theta
+            if theta2 < theta
                 p = i;
                 end
         end
@@ -68,6 +66,6 @@ function [vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland)
     xb = xb + theta*db;
     xb(p) = theta;	%ahora en el lugar p se encuentra el valor de x_q
     z = z + theta*r(q);
-    fprintf("q = %d, rq = %.4f, B(p) = %d,theta* = %.4f,  z = %.4f",vb2(p), r(q), vn2(q), theta, z);
+    fprintf("q = %4.d, rq = %4.f, B(p) = %4.d,theta* = %4.f,  z = %4.f",vb2(p), r(q), vn2(q), theta, z);
     fprintf("\n");
 end

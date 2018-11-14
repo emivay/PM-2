@@ -21,38 +21,38 @@ bland = false;
 niter=1;
 
 if bland == true
-display("Inicio del simplex primal con regla de Bland");
+fprinf("Inicio del simplex primal con regla de Bland");
 end
 
 if bland == false
-display("Inicio del simplex primal con costos reducidos más negativos");
+fprintf("Inicio del simplex primal con costos reducidos más negativos");
 end
 
-display("Fase I");
+fprintf("Fase I");
 
 while (iout == 0)
 	fprintf("Iteración número: %4.d", niter)
-	[vb, vn, xb, z, iout] = simplexP_iter(cI, AI, b, vbI, vnI, xbI, zI, bland);
+	[vbI, vnI, xbI, zI, iout] = simplexP_iter(cI, AI, b, vbI, vnI, xbI, zI, bland);
 	niter = niter + 1;
 end
 
 if iout == 2
-display("Problema ilimitado");
+fprintf("Problema ilimitado");
 end
 
 if iout == 3
-display("La solución básica factible es degenerada");
+fprintf("La solución básica factible es degenerada");
 end
 
 %Si no nos encontramos en ninguno de esos dos casos, iout = 1 y tenemos una solución ópitma
 %Fase II del simplex
 
-if z ~= 0
-	display("Problema infactible");
+if abs(zI) > 1e-5
+	fprintf("Problema infactible");
 end
 
-if z == 0
-	display("Fase II");
+if abs(zI) < 1e-5
+	fprintf("Fase II");
 	%Actualización de variables para comenzar la primera iteracion de la fase II
 	iout = 0;
 	xb = xbI;
@@ -71,15 +71,15 @@ if z == 0
 		niter = niter + 1;
 	end
 	if iout == 1
-		fprintf("Solución óptima encontrada, iteración %d",niter-1);
+		fprintf("Solución óptima encontrada, iteración %4.d",niter-1);
 		fprintf("z = %4.f",z );
 	end
 	if iout == 2
-		display("Problema ilimitado");
+		fprintf("Problema ilimitado");
 	end
 
 	if iout == 3
-		display("La solución básica factible es degenerada");
+		fprintf("La solución básica factible es degenerada");
 	end
 end
 
