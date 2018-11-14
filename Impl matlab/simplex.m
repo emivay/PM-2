@@ -52,7 +52,8 @@ if abs(zI) > 1e-5
 end
 
 if abs(zI) < 1e-5
-	fprintf('\n Fase II');
+	fprintf('Solución básica factible encontrada');
+	fprintf('\nFase II \n');
 	%Actualización de variables para comenzar la primera iteracion de la fase II
 	iout = 0;
 	xb = xbI;
@@ -71,8 +72,7 @@ if abs(zI) < 1e-5
 		niter = niter + 1;
 	end
 	if iout == 1
-		fprintf("\n Solución óptima encontrada, iteración %4.d",niter-1);
-		fprintf("z = %.4f",z );
+		fprintf("Solución óptima encontrada z = %8.4f \n",z );
 	end
 	if iout == 2
 		fprintf('Problema ilimitado');

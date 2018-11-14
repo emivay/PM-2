@@ -66,6 +66,5 @@ function [vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland)
     xb = xb + theta*db;
     xb(p) = theta;	%ahora en el lugar p se encuentra el valor de x_q
     z = z + theta*r(q);
-    fprintf("q = %4.d rq = %.4f B(p) = %4.dtheta* = %.4f  z = %.4f",vb(p), r(q), vn(q), theta, z);
-    fprintf("\n");
+    fprintf("q = %4.d  rq = %10.4f  B(p) = %4.d  theta* = %10.4f  z = %10.4f \n",vb(p), r(q), vn(q), theta, z);
 end
