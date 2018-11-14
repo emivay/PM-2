@@ -12,30 +12,8 @@
 \usepackage{graphicx}
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 
-\title{Práctica 2\\ 
-\large Implementación del algoritmo del Simplex Primal }
-\author{Pedro López Sancha, Emilia Vayssier}
-
 \begin{document}
-\maketitle
 
-En este trabajo se ha implementado el algoritmo del Simplex Primal en dos lenguajes de programación distintos: C++ y MATLAB. \\
-Se programaron dos versiones del algoritmo que difieren en la forma de elegir de la variable no básica de entrada a la base. La primera versión utiliza la Regla de Bland, mientras que la segunda utiliza la Regla del coste reducido más grande. Ambas versiones constan de las Fases I y II. \\
-Se resolvieron los problemas planteados utilizando las dos versiones y se presenta una comparación del rendimiento. Los resultados vienen acompañados de la actualización de los valores a cada iteración.
-\newpage
-\section{Introducción}
-\section{Objetivos}
-Los objetivos que se plantean para la práctica són:
-\begin{enumerate}
-\item	Comprender el fundamento teórico de los algoritmos del Símplex primal y dual.
-\item	Implementar el algoritmo del Símplex primal
-\end{enumerate}
-\section{Metologia}
-Los objetivos anteriormente propuestos se alcanzarán con la siguiente metodología:
-\begin{enumerate}
-\item	Se realizará un estudio exhaustivo de los fundamentos de la programación lineal y del algoritmo del Símplex. Esta etapa, en su mayor parte, se hará durante la época previa a los exámenes parciales.
-\item	Se implementará el algoritmo del Símplex primal en dos lenguajes de programación: C++ y MATLAB.
-\end{enumerate}
 \section{Implementación en C++}
 A pesar de que se recomendó emplear MATLAB como lenguaje de programación, hemos decidido implementar el algoritmo en C++ como divertimento, y también como práctica para otras asignaturas como Algoritmia.\\
 Para ello, primeramente ha sido necesario crear una clase Matriz que permita implementar el algoritmo del Símplex de manera cómoda.\\
@@ -127,16 +105,4 @@ La solución al problema de las tolerancias está fuera de nuestros alcance. No 
 \item	En caso de que encuentre degeneración y de estar usando la regla del coste reducido más negativo, no parar la ejecución del algoritmo, sino crear una lista con todas las bases por las que el algoritmo ha pasado a partir de la detección de degeneración. Así, tras cada iteración, podríamos comprobar si la base actual ya ha sido visitada. En caso afirmativo, probablemente indicaría que el Símplex está ciclando, y por tanto el algoritmo no asegura su convergencia.
 \end{itemize}
 \newpage
-\section{Implementación en MATLAB}
-\section{Conclusiones}
-Las conclusiones que hemos podido extraer tras la realización de la práctica son:
-\begin{enumerate}
-\item	asdasdas
-\item	sdfsafdsfds
-\end{enumerate}
-Otras conclusiones a las que hemos llegado además de las de los objetivos planteados son:
-\begin{enumerate}
-\item	asdasdsa
-\item	dasdas
-\end{enumerate}
 \end{document}
