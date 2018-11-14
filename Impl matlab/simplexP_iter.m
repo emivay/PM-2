@@ -50,6 +50,7 @@ function [vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland)
         if db(i) < 0
             theta2 = -xb(i)/db(i);
             if theta2 < theta
+				theta = theta2;
                 p = i;
                 end
         end
@@ -59,13 +60,12 @@ function [vb, vn, xb, z, iout] = simplexP_iter(c, A, b, vb, vn, xb, z, bland)
 
     %Actualización y cambios en las bases
     iout = 0;
-    vb2(p) = vn(q);
-    vn2(q) = vb(p);
-    vb(p) = vb2(p);
-    vn(q) = vn2(q);
+    aux = vb(p);
+    vb(p) = vn(q);
+    vn(q) = aux;
     xb = xb + theta*db;
     xb(p) = theta;	%ahora en el lugar p se encuentra el valor de x_q
     z = z + theta*r(q);
-    fprintf("q = %4.d, rq = %4.f, B(p) = %4.d,theta* = %4.f,  z = %4.f",vb2(p), r(q), vn2(q), theta, z);
+    fprintf("q = %4.d rq = %.4f B(p) = %4.dtheta* = %.4f  z = %.4f",vb(p), r(q), vn(q), theta, z);
     fprintf("\n");
 end
